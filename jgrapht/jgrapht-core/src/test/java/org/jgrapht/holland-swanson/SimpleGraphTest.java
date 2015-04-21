@@ -29,8 +29,9 @@ public class SimpleGraphTest
         String vertex1 = "2";
         g.addVertex(vertex1);
         String vertex2 = "2";
+        Integer value = 2;
         g.addEdge(vertex1, vertex2, 2);
        	Integer edge = g.getEdge(vertex1, vertex2);
-        assertEquals(2, edge);
+        assertEquals(value, edge);
 	}	
 }
