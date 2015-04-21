@@ -15,8 +15,8 @@ public class SimpleGraphTest
 	public void oneEdge()
 	{
 		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
-        String vertex1 = "2";
-        g.addVertex("1");
+        String vertex1 = "1";
+        g.addVertex(vertex1);
         String vertex2 = "2";
         g.addEdge(vertex1, vertex2);
         assertEquals(2, g.vertexSet().size());
@@ -26,9 +26,10 @@ public class SimpleGraphTest
 	public void weightedGraph()
 	{
 		WeightedGraph<String, Integer> g = new SimpleWeightedGraph<String, Integer>(Integer.class);
-        String vertex1 = "2";
+        String vertex1 = "1";
         g.addVertex(vertex1);
         String vertex2 = "2";
+        g.addVertex(vertex2);
         Integer value = 2;
         g.addEdge(vertex1, vertex2, 2);
        	Integer edge = g.getEdge(vertex1, vertex2);
