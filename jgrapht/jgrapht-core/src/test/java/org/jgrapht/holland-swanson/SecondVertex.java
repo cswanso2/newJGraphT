@@ -16,9 +16,9 @@ public class SecondVertex {
     @Test
     public void addedSeco() {
         UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
-        vertex1 = "2";
+        String vertex1 = "2";
         g.addVertex("1");
-        vertex2 = "2";
+        String vertex2 = "2";
         g.addVertex(vertex2);
         g.addEdge(vertex1, "2");
         //WeightedGraph<String, DefaultEdge> graph = new SimpleWeightedGraph<String, DefaultEdge>(DefaultEdge.class);
