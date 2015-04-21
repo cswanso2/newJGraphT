@@ -1,7 +1,11 @@
 package org.jgrapht.graph;
 
+import org.jgrapht.*;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.After;
 import java.util.*;
-
 import org.jgrapht.*;
 
 public class SimpleGraphTest
