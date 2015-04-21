@@ -26,6 +26,6 @@ public class SecondVertex {
         //List<String> list1 = new LinkedList<String>();
 
         //assertEquals(Collections.emptySet(), new KuhnMunkresMinimalWeightBipartitePerfectMatching<String, DefaultWeightedEdge>(graph, list0, list1).getMatching());
-        assertEquals(2, g.getAllVertices().size());
+        assertEquals(2, g.vertexSet().size());
     }
 }
