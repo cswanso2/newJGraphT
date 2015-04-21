@@ -25,7 +25,7 @@ public class SimpleGraphTest
 	@Test
 	public void weightedGraph()
 	{
-		WeightedGraph<String, Integer> g = new SimpleWeightedGraphGraph<String, Integer>();
+		WeightedGraph<String, Integer> g = new SimpleWeightedGraph<String, Integer>();
         String vertex1 = "2";
         g.addVertex("1");
         String vertex2 = "2";
