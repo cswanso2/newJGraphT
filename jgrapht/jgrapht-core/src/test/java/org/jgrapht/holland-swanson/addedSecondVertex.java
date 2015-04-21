@@ -20,7 +20,7 @@ public class SecondVertex {
         g.addVertex("1");
         vertex2 = "2";
         g.addVertex(vertex);
-        g.addEdge(vertex1, "1")
+        g.addEdge(vertex1, "2");
         //WeightedGraph<String, DefaultEdge> graph = new SimpleWeightedGraph<String, DefaultEdge>(DefaultEdge.class);
         //List<String> list0 = new LinkedList<String>();
         //List<String> list1 = new LinkedList<String>();
