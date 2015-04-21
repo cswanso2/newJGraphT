@@ -2,7 +2,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.After;
-package org.jgrapht.graph;
+import package org.jgrapht.graph;
 import java.util.*;
 import org.jgrapht.*;
 
@@ -14,6 +14,6 @@ public class KuhnMunkresMinimalWeightBipartitePerfectMatchingTest {
     @Test
     public void EmptyClass() {
         
-        assertEquals(Collections.emptySet(), new KuhnMunkresMinimalWeightBipartitePerfectMatching<VertexType, DefaultWeightedEdge>(graph, list0, list1).getMatching(););
+        assertEquals(Collections.emptySet(), new KuhnMunkresMinimalWeightBipartitePerfectMatching<VertexType, DefaultWeightedEdge>(graph, list0, list1).getMatching());
     }
 }
