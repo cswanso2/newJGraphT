@@ -1,8 +1,10 @@
+package org.jgrapht.graph;
+
+import org.jgrapht.*;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.After;
-import package org.jgrapht.graph;
 import java.util.*;
 import org.jgrapht.*;
 
