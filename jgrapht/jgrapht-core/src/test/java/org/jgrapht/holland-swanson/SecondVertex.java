@@ -14,18 +14,13 @@ public class SecondVertex {
     // [TODO] Write your test set for T_E in JUnit.
 
     @Test
-    public void addedSeco() {
+    public void addedSecondVertex() {
         UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
         String vertex1 = "2";
         g.addVertex("1");
         String vertex2 = "2";
         g.addVertex(vertex2);
         g.addEdge(vertex1, "2");
-        //WeightedGraph<String, DefaultEdge> graph = new SimpleWeightedGraph<String, DefaultEdge>(DefaultEdge.class);
-        //List<String> list0 = new LinkedList<String>();
-        //List<String> list1 = new LinkedList<String>();
-
-        //assertEquals(Collections.emptySet(), new KuhnMunkresMinimalWeightBipartitePerfectMatching<String, DefaultWeightedEdge>(graph, list0, list1).getMatching());
         assertEquals(2, g.vertexSet().size());
     }
 }
