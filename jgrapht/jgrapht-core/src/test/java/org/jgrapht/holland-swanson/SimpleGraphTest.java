@@ -27,10 +27,10 @@ public class SimpleGraphTest
 	{
 		WeightedGraph<String, Integer> g = new SimpleWeightedGraph<String, Integer>(Integer.class);
         String vertex1 = "2";
-        g.addVertex("1");
+        g.addVertex(vertex1);
         String vertex2 = "2";
         g.addEdge(vertex1, vertex2, 2);
-        Set<Integer> edges = g.getAllEdges();
+       	Integer edge = g.getEdge(vertex1, vertex2);
         for(Integer e : edges)
         {
         	assertEquals(2, e);
