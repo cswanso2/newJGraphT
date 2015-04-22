@@ -1,0 +1,16 @@
+In order to assess progress, please run the project.sh script which will automatically checkout our Github repository for JGraphT and complete a Maven test.
+Below are the following files/additions that we have added thus far in the project.
+We are planning on adding more functionality and higher branch coverage.
+
+All added files can be found at: newJGraphT/jgrapht/jgrapht-core/src/test/java/org/jgrapht/holland-swanson
+Description of Files are below:
+
+BasicGraphTest.java: 10 executables that test basic functionality.
+
+FailingTest.java: 2 executable tests that fail.  Extra explanations can be found in the acutal file.
+
+SecondVertex.java: 1 executable that tests basic functionality.
+
+SimpleGraphTest.java: 10 executables that test basic functionality.
+
+weightedFailingTest.java: 2 executable tests that fail.  Extra explanations can be found in the acutal file.
