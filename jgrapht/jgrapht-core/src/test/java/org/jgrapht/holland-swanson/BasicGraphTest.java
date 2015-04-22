@@ -43,11 +43,12 @@ public class BasicGraphTest
 	@Test
 	public void unweightedGraphTest()
 	{
-		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
+		UndirectedGraph<String, Integer> g = new SimpleGraph<String, Integer>(Integer.class);
 		String vertex1 = "1";
         g.addVertex(vertex1);
         String vertex2 = "2";
         g.addVertex(vertex2);
+        g.addEdge(vertex1, vertex2);
 
         assertEquals(g.getEdgeWeight(g.getEdge(vertex1, vertex2)), 1.0);
 	}
