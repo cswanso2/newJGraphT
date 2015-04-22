@@ -12,7 +12,7 @@ import org.jgrapht.*;
 
 public class SimpleGraphTest
 {
-
+	//1
 	@Test
 	public void correctNumberOfEdges()
 	{
@@ -24,7 +24,7 @@ public class SimpleGraphTest
         g.addEdge(vertex1, vertex2);
         assertEquals(2, g.vertexSet().size());
 	}
-
+	//2
 	@Test
 	public void weightedGraph()
 	{
@@ -38,7 +38,7 @@ public class SimpleGraphTest
        	Integer edge = g.getEdge(vertex1, vertex2);
         assertEquals(value, edge);
 	}
-
+	//3
 	@Test
 	public void directedGraphOneEdge()
 	{
@@ -52,7 +52,7 @@ public class SimpleGraphTest
         assertEquals(true, g.containsEdge(vertex1, vertex2));
         assertEquals(false, g.containsEdge(vertex2, vertex1));
 	}	
-
+	//4
 	@Test
 	public void directedGraphTwoEdges()
 	{
@@ -67,7 +67,7 @@ public class SimpleGraphTest
         assertEquals(true, g.containsEdge(vertex1, vertex2));
         assertEquals(false, g.containsEdge(vertex2, vertex1));
 	}	
-
+	//5
 	@Test
 	public void removeVertex()
 	{
@@ -81,21 +81,14 @@ public class SimpleGraphTest
   		g.removeVertex(vertex2);
         assertEquals(0, g.vertexSet().size() );
 	}
-
+	//6
 	@Test
-	public void testRemoveVertex()
+	public void emptyGraph()
 	{
 		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
-		String vertex1 = "1";
-        g.addVertex(vertex1);
-        String vertex2 = "2";
-        g.addVertex(vertex2);
-        assertEquals(2, g.vertexSet().size() );
-  		g.removeVertex(vertex1);
-  		g.removeVertex(vertex2);
         assertEquals(0, g.vertexSet().size() );
 	}
-
+	//7
 	@Test
 	public void removeEdge()
 	{
