@@ -17,6 +17,10 @@ public class FailingTest {
     // that T_E does not satisfy GACC on the predicate in checkIt.
     // [TODO] Write your test set for T_E in JUnit.
 
+    /*
+    Fails because you try to add an edge where neither one is a vertex in the graph to the graph, it should just create the vertices 
+    and edge and but instead the exception is thrown because the vertices are not in the grpah.
+    */
     @Test
     public void EdgeWithoutVertex() {
         WeightedGraph<String, Integer> g = new SimpleWeightedGraph<String, Integer>(Integer.class);
@@ -33,6 +37,11 @@ public class FailingTest {
         assertEquals(true, true);
     }
 
+
+    /*
+    When one vertex in the graph, and the other isn't and an edge is added it should add the 
+    new vertex but instead nothing is added.
+    */
     @Test
     public void FailsOnNoVertex()
     {
