@@ -24,7 +24,7 @@ public class FailingTest {
         {
             assertEquals(true, g.addEdge(vertex1, vertex2, 2));
         }
-        catch
+        catch(Exception e)
         {
             fail("unexpected error");
         }
@@ -43,7 +43,7 @@ public class FailingTest {
         {
             assertEquals(true, g.addEdge(vertex1, vertex3, 2));
         }
-        catch
+        catch(Exception e)
         {
             fail("unexpected error");
         }
