@@ -49,8 +49,8 @@ public class SimpleGraphTest
         g.addVertex(vertex2);
         Integer value = 2;
         g.addEdge(vertex1, vertex2, value);
-        assertEquals(true, g.hasEdge(vertex1, vertex2));
-        assertEquals(false, g.hasEdge(vertex2, vertex1));
+        assertEquals(true, g.containsEdge(vertex1, vertex2));
+        assertEquals(false, g.containsEdge(vertex2, vertex1));
 	}	
 
 	@Test
@@ -64,8 +64,8 @@ public class SimpleGraphTest
         Integer value = 2;
         g.addEdge(vertex1, vertex2, value);
         g.addEdge(vertex2, vertex1, value);
-        assertEquals(true, g.hasEdge(vertex1, vertex2));
-        assertEquals(false, g.hasEdge(vertex2, vertex1));
+        assertEquals(true, g.containsEdge(vertex1, vertex2));
+        assertEquals(false, g.containsEdge(vertex2, vertex1));
 	}	
 
 	@Test
@@ -106,7 +106,7 @@ public class SimpleGraphTest
         g.addVertex(vertex2);
         g.addEdge(vertex1, vertex2);
         g.removeEdge(vertex1, vertex2);
-        assertEquals(false, g.hasEdge(vertex1, vertex2));
+        assertEquals(false, g.containsEdge(vertex1, vertex2));
 	}
 
 	@Test
@@ -119,7 +119,7 @@ public class SimpleGraphTest
         g.addVertex(vertex2);
         g.addEdge(vertex, vertex2);
   		g.removeVertex(vertex1);
-        assertEquals(false, g.hasEdge(vertex1, vertex2) );
+        assertEquals(false, g.containsEdge(vertex1, vertex2) );
 	}
 
 	@Test
