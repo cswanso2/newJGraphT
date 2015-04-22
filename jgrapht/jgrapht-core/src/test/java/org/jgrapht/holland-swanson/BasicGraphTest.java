@@ -28,22 +28,33 @@ public class BasicGraphTest
 	}
 
 	@Test
-	public void getEdgeTwoTest()
+	public void getEdgeWeightTest()
 	{
-		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		WeightedGraph<String, Integer> g = new SimpleWeightedGraph<String, Integer>(Integer.class);
 		String vertex1 = "1";
         g.addVertex(vertex1);
         String vertex2 = "2";
         g.addVertex(vertex2);
         Integer value = 10;
         g.addEdge(vertex1, vertex2, value);
-        String vertex3 = "3";
-        g.addVertex(vertex3);
-        Integer value2 = 11;
-        g.addEdge(vertex2, vertex3, value2);
-        Integer value3 = 12;
-        g.addEdge(vertex3, vertex1, value3);
 
         assertEquals(getEdgeWeight(getEdge(vertex1, vertex2)), 10);
+	}
+
+	@Test
+	public void removeEdgeUpdateTest()
+	{
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Integer value = 3;
+        g.addEdge(vertex1, vertex2, value);
+        g.removeEdge(vertex1, vertex2);
+        Integer update = 5
+        g.addEdge(vertex1, vertex2, update);
+
+        assertEquals(g.getEdge(vertex1, vertex2), update);
 	}
 }
