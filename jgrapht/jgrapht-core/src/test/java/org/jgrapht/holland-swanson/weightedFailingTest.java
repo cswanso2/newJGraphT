@@ -10,7 +10,15 @@ import org.junit.After;
 import java.util.*;
 import org.jgrapht.*;
 
-public class BasicGraphTest
+/*
+This file contains two bugs.  They are described below:
+
+getEdgeWeightTest: When passing in an integer for the edge value, we would want to expect an integer to be outputted when calling getEdgeWeight.  Instead it gives a failure.
+
+unweightedGraphTest: The output of getEdgeWeight is supposed to ouput 1.0 by the documentation, but also fails when compairing to 1.0
+*/
+
+public class weightedFailingTest
 {
 	@Test
 	public void getEdgeWeightTest()
