@@ -48,6 +48,7 @@ public class BasicGraphTest
         g.addVertex(vertex1);
         String vertex2 = "2";
         g.addVertex(vertex2);
+        Integer value = 10;
         g.addEdge(vertex1, vertex2, value);
 
         assertEquals(g.getEdgeWeight(g.getEdge(vertex1, vertex2)), 1.0);
