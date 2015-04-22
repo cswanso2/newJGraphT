@@ -67,6 +67,6 @@ public class BasicGraphTest
         String vertex2 = "2";
         g.addVertex(vertex2);
 
-        assertEquals(g.addVertex(vertex1, vertex2), false);
+        assertEquals(g.addVertex(vertex1), false);
 	}
 }
