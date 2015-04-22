@@ -69,7 +69,7 @@ public class SimpleGraphTest
 	}	
 
 	@Test
-	public void testRemoveVertex()
+	public void removeVertex()
 	{
 		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
 		String vertex1 = "1";
@@ -117,7 +117,7 @@ public class SimpleGraphTest
         g.addVertex(vertex1);
         String vertex2 = "2";
         g.addVertex(vertex2);
-        g.addEdge(vertex, vertex2);
+        g.addEdge(vertex1, vertex2);
   		g.removeVertex(vertex1);
         assertEquals(false, g.containsEdge(vertex1, vertex2) );
 	}
