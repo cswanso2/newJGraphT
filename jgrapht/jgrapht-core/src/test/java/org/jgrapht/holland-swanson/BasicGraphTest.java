@@ -23,5 +23,7 @@ public class BasicGraphTest
         g.addVertex(vertex2);
         Integer value = 3;
         g.addEdge(vertex1, vertex2, value);
+
+        assertEquals(g.getEdge(vertex1, vertex2), value);
 	}
 }
