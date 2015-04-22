@@ -16,7 +16,7 @@ public class SimpleGraphTest
 	@Test
 	public void getEdgeTest()
 	{
-		DirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
+		DirectedGraph<String, Integer> g = new SimpleGraph<String, Integer>(Integer.class);
 		String vertex1 = "1";
         g.addVertex(vertex1);
         String vertex2 = "2";
