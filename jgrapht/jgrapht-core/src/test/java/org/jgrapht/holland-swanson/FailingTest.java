@@ -7,6 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.After;
+import org.junit.*;
 import java.util.*;
 import org.jgrapht.*;
 
