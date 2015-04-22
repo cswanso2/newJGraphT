@@ -19,5 +19,6 @@ public class SimpleGraphTest
 		DirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 		Integer value = 3;
         g.addEdge(vertex1, vertex2, value);
-        assertEquals(getEdge(vertex1, vertex2), value);
+        Integer test getEdge(vertex1, vertex2);
+        assertEquals(test, value);
 	}
