@@ -13,6 +13,7 @@ import org.jgrapht.graph.*;
 import static org.junit.Assert.assertEquals;
 
 public class GraphPathTest
+    extends TestCase
 {
 
     // Converted JUnit 4 test from testRaidus() in the ClosestFirstIteratorTest class
