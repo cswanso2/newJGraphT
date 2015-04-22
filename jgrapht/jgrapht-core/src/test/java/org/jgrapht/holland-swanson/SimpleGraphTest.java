@@ -1,3 +1,5 @@
+//Swanson
+
 package org.jgrapht.graph;
 
 import org.jgrapht.*;
@@ -12,12 +14,13 @@ public class SimpleGraphTest
 {
 
 	@Test
-	public void oneEdge()
+	public void correctNumberOfEdges()
 	{
 		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
         String vertex1 = "1";
         g.addVertex(vertex1);
         String vertex2 = "2";
+        g.addVertex(vertex2);
         g.addEdge(vertex1, vertex2);
         assertEquals(2, g.vertexSet().size());
 	}
@@ -34,5 +37,35 @@ public class SimpleGraphTest
         g.addEdge(vertex1, vertex2, 2);
        	Integer edge = g.getEdge(vertex1, vertex2);
         assertEquals(value, edge);
+	}
+
+	@Test
+	public void directedGraphOneEdge()
+	{
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Integer value = 2;
+        g.addEdge(vertex1, vertex2, value);
+        assertEquals(true, g.hasEdge(vertex1, vertex2));
+        assertEquals(false, g.hasEdge(vertex2, vertex1));
 	}	
+
+	@Test
+	public void directedGraphTwoEdges()
+	{
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Integer value = 2;
+        g.addEdge(vertex1, vertex2, value);
+        g.addEdge(vertex2, vertex1, value);
+        assertEquals(true, g.hasEdge(vertex1, vertex2));
+        assertEquals(false, g.hasEdge(vertex2, vertex1));
+	}	
+
 }
