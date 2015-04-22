@@ -23,7 +23,7 @@ public class SimpleGraphTest
         g.addVertex(vertex2);
 		Integer value = 3;
         g.addEdge(vertex1, vertex2, value);
-        Integer test = getEdge(vertex1, vertex2);
+        Integer test = g.getEdge(vertex1, vertex2);
         assertEquals(test, value);
 	}
 }
