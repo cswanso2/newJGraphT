@@ -10,7 +10,7 @@ import org.junit.After;
 import java.util.*;
 import org.jgrapht.*;
 
-public class FailingTests {
+public class FailingTest {
     // Derive an Edge Coverage test set T_E for checkItExpand such
     // that T_E does not satisfy GACC on the predicate in checkIt.
     // [TODO] Write your test set for T_E in JUnit.
