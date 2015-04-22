@@ -32,7 +32,6 @@ public class FailingTest {
         String vertex3 = "3";
         g.addVertex(vertex1);
         g.addVertex(vertex2);
-        g.addVertex(vertex3);
         assertEquals(null, g.removeEdge(vertex1, vertex3));
     }
 }
