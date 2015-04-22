@@ -13,9 +13,9 @@ import org.jgrapht.*;
 /*
 This file contains two bugs.  They are described below:
 
-getEdgeWeightTest: When passing in an integer for the edge value, we would want to expect an integer to be outputted when calling getEdgeWeight.  Instead it gives a failure.
+getEdgeWeightTest: When passing in an integer for the edge value, we would want to expect an integer to be outputted when calling getEdgeWeight.  Instead it gives a double and thus fails.
 
-unweightedGraphTest: The output of getEdgeWeight is supposed to ouput 1.0 by the documentation, but also fails when compairing to 1.0
+unweightedGraphTest: The output of getEdgeWeight is supposed to ouput 1.0 by the documentation, but also fails when compairing it to 1.0.
 */
 
 public class weightedFailingTest
