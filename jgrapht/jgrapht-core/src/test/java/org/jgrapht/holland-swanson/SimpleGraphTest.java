@@ -71,7 +71,7 @@ public class SimpleGraphTest
 	@Test
 	public void removeVertex()
 	{
-		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		DirectedGraph<String, DefaultEdge> g = new SimpleDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 		String vertex1 = "1";
         g.addVertex(vertex1);
         String vertex2 = "2";
@@ -92,7 +92,7 @@ public class SimpleGraphTest
 	@Test
 	public void removeEdge()
 	{
-		UndirectedGraph<String, Integer> g = new SimpleGraph<String, Integer>(Integer.class);
+		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 		String vertex1 = "1";
         g.addVertex(vertex1);
         String vertex2 = "2";
@@ -105,7 +105,7 @@ public class SimpleGraphTest
 	@Test
 	public void removeVertexRemovesEdge()
 	{
-		UndirectedGraph<String, Integer> g = new SimpleGraph<String, Integer>(Integer.class);
+		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 		String vertex1 = "1";
         g.addVertex(vertex1);
         String vertex2 = "2";
@@ -118,7 +118,7 @@ public class SimpleGraphTest
 	@Test
 	public void degreeOf()
 	{
-		UndirectedGraph<String, Integer> g = new SimpleGraph<String, Integer>(Integer.class);
+		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 		String vertex1 = "1";
         g.addVertex(vertex1);
         assertEquals(0, g.degreeOf(vertex1));
