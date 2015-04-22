@@ -10,7 +10,7 @@ import org.junit.After;
 import java.util.*;
 import org.jgrapht.*;
 
-public class SimpleGraphTest
+public class BasicGraphTest
 {
 	//1
 	@Test
