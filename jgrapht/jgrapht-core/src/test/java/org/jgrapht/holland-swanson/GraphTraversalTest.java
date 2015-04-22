@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.After;
 import java.util.*;
-import org.jgrapht.*;
+import org.jgrapht.graph.*;
 
 public class GraphTraversalTest
     extends AbstractGraphIteratorTest
