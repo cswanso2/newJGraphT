@@ -29,10 +29,10 @@ public class FailingTest {
         UndirectedGraph<String, Integer> g = new SimpleGraph<String, Integer>(Integer.class);
         String vertex1 = "1";
         String vertex2 = "2";
+        String vertex3 = "3";
         g.addVertex(vertex1);
         g.addVertex(vertex2);
         g.addVertex(vertex3);
-        String vertex3 = "3";
         assertEquals(null, g.removeEdge(vertex1, vertex3));
     }
 }
