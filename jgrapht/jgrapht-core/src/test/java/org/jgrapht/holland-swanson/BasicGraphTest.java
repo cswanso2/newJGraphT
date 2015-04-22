@@ -38,7 +38,7 @@ public class BasicGraphTest
         Integer value = 10;
         g.addEdge(vertex1, vertex2, value);
 
-        assertEquals(getEdgeWeight(getEdge(vertex1, vertex2)), 10);
+        assertEquals(g.getEdgeWeight(g.getEdge(vertex1, vertex2)), 10);
 	}
 
 	@Test
@@ -52,9 +52,21 @@ public class BasicGraphTest
         Integer value = 3;
         g.addEdge(vertex1, vertex2, value);
         g.removeEdge(vertex1, vertex2);
-        Integer update = 5
+        Integer update = 5;
         g.addEdge(vertex1, vertex2, update);
 
         assertEquals(g.getEdge(vertex1, vertex2), update);
+	}
+
+	@Test
+	public void addVertexTest()
+	{
+		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+
+        assertEquals(g.addVertex(vertex1, vertex2), false);
 	}
 }
