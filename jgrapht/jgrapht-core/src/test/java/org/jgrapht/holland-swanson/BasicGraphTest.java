@@ -12,7 +12,6 @@ import org.jgrapht.*;
 
 public class BasicGraphTest
 {
-	//1
 	@Test
 	public void getEdgeOneTest()
 	{
@@ -25,20 +24,6 @@ public class BasicGraphTest
         g.addEdge(vertex1, vertex2, value);
 
         assertEquals(g.getEdge(vertex1, vertex2), value);
-	}
-
-	@Test
-	public void getEdgeWeightTest()
-	{
-		WeightedGraph<String, Integer> g = new SimpleWeightedGraph<String, Integer>(Integer.class);
-		String vertex1 = "1";
-        g.addVertex(vertex1);
-        String vertex2 = "2";
-        g.addVertex(vertex2);
-        Integer value = 10;
-        g.addEdge(vertex1, vertex2, value);
-
-        assertEquals(g.getEdgeWeight(g.getEdge(vertex1, vertex2)), 10);
 	}
 
 	@Test
@@ -59,7 +44,7 @@ public class BasicGraphTest
 	}
 
 	@Test
-	public void addVertexTest()
+	public void addVertexFalseTest()
 	{
 		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 		String vertex1 = "1";
@@ -68,5 +53,102 @@ public class BasicGraphTest
         g.addVertex(vertex2);
 
         assertEquals(g.addVertex(vertex1), false);
+	}
+
+	@Test
+	public void addVertexTrueTest()
+	{
+		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+
+        assertEquals(g.addVertex(vertex2), true);
+	}
+
+	@Test
+	public void containsEdgeTrueTest()
+	{
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Integer value = 3;
+        g.addEdge(vertex1, vertex2, value);
+
+        assertEquals(g.containsEdge(vertex1, vertex2), true);
+	}
+
+	@Test
+	public void containsEdgeFalseTest()
+	{
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Integer value = 3;
+        g.addEdge(vertex1, vertex2, value);
+        String vertex3 = "3";
+        g.addVertex(vertex3);
+
+        assertEquals(g.containsEdge(vertex1, vertex3), false);
+	}
+
+	@Test
+	public void addEdgeTrue()
+	{
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Integer value = 3;
+
+        assertEquals(g.addEdge(vertex1, vertex2, value), true);
+	}
+
+	@Test
+	public void addEdgeFalse()
+	{
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Integer value = 3;
+        g.addEdge(vertex1, vertex2, value);
+        Integer update = 5;
+
+        assertEquals(g.addEdge(vertex1, vertex2, update), false);
+	}
+
+	@Test
+	public void getEdgeSourceTest()
+	{
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Integer value = 3;
+        g.addEdge(vertex1, vertex2, value);
+
+        assertEquals(g.getEdgeSource(g.getEdge(vertex1, vertex2)), vertex1);
+	}
+
+	@Test
+	public void getEdgeTargetTest()
+	{
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Integer value = 3;
+        g.addEdge(vertex1, vertex2, value);
+
+        assertEquals(g.getEdgeTarget(g.getEdge(vertex1, vertex2)), vertex2);
 	}
 }
