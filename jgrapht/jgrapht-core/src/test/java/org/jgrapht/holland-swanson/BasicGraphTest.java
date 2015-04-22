@@ -22,3 +22,4 @@ public class SimpleGraphTest
         Integer test = getEdge(vertex1, vertex2);
         assertEquals(test, value);
 	}
+}
