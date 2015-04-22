@@ -75,7 +75,7 @@ public class BasicGraphTest
 		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 		String vertex1 = "1";
         g.addVertex(vertex1);
-        String vertex2 = '2';
+        String vertex2 = "2";
 
         assertEquals(g.addVertex(vertex2), true);
 	}
