@@ -43,7 +43,7 @@ public class BasicGraphTest
 	@Test
 	public void unweightedGraphTest()
 	{
-		UndirectedGraph<String, Integer> g = new SimpleGraph<String, Integer>(Integer.class);
+		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
 		String vertex1 = "1";
         g.addVertex(vertex1);
         String vertex2 = "2";
