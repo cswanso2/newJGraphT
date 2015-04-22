@@ -10,6 +10,8 @@ import junit.framework.*;
 import org.jgrapht.*;
 import org.jgrapht.graph.*;
 
+import static org.junit.Assert.assertEquals;
+
 public class GraphPathTest
 {
 
