@@ -20,7 +20,14 @@ public class FailingTest {
         WeightedGraph<String, Integer> g = new SimpleWeightedGraph<String, Integer>(Integer.class);
         String vertex1 = "1";
         String vertex2 = "2";
-        //assertEquals(true, g.addEdge(vertex1, vertex2, 2));
+        try
+        {
+            assertEquals(true, g.addEdge(vertex1, vertex2, 2));
+        }
+        catch
+        {
+            fail("unexpected error");
+        }
         assertEquals(true, true);
     }
 
@@ -32,7 +39,13 @@ public class FailingTest {
         String vertex2 = "2";
         String vertex3 = "3";
         g.addVertex(vertex1);
-        g.addVertex(vertex2);
-        assertEquals(null, g.removeEdge(vertex1, vertex3));
+        try
+        {
+            assertEquals(true, g.addEdge(vertex1, vertex3, 2));
+        }
+        catch
+        {
+            fail("unexpected error");
+        }
     }
 }
