@@ -41,6 +41,18 @@ public class BasicGraphTest
 	}
 
 	@Test
+	public void unweightedGraphTest()
+	{
+		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+
+        assertEquals(g.getEdgeWeight(g.getEdge(vertex1, vertex2)), 1.0);
+	}
+
+	@Test
 	public void removeEdgeUpdateTest()
 	{
 		DirectedGraph<String, Integer> g = new SimpleDirectedGraph<String, Integer>(Integer.class);
