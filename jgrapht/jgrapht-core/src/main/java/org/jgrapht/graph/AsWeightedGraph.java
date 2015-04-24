@@ -152,17 +152,19 @@ public class AsWeightedGraph<V, E>
         // Always return the value from the weight map first and
         // only pass the call through as a backup
         if (weightMap.containsKey(e)) {
-            weight = weightMap.get(e);
+            weight = int(weightMap.get(e));
         } else {
-            weight = super.getEdgeWeight(e);
+            weight = int(super.getEdgeWeight(e));
         }
 
         return weight;
     }
 
+
     /**
      * @see Graph#getEdgeWeight
      */
+    /*
     @Override public boolean getBoolEdgeWeight(E e)
     {
         boolean weight;
@@ -177,6 +179,8 @@ public class AsWeightedGraph<V, E>
 
         return weight;
     }
+
+    */
 }
 
 // End AsWeightedGraph.java

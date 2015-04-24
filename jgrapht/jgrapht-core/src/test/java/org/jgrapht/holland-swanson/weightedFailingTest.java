@@ -31,7 +31,7 @@ public class weightedFailingTest
         Integer value = 10;
         g.addEdge(vertex1, vertex2, value);
 
-        assertEquals(g.getEdgeWeight(g.getEdge(vertex1, vertex2)), 10.0);
+        assertEquals(g.getIntEdgeWeight(g.getEdge(vertex1, vertex2)), 10.0);
 	}
 
 	@Test
