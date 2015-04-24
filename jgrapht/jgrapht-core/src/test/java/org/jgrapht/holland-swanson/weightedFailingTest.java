@@ -21,7 +21,7 @@ unweightedGraphTest: The output of getEdgeWeight is supposed to ouput 1.0 by the
 public class weightedFailingTest
 {
 	@Test
-	public void getEdgeWeightTest()
+	public void getIntEdgeWeightTest()
 	{
 		WeightedGraph<String, Integer> g = new SimpleWeightedGraph<String, Integer>(Integer.class);
 		String vertex1 = "1";
@@ -46,5 +46,19 @@ public class weightedFailingTest
         g.addEdge(vertex1, vertex2, value);
 
         assertEquals(g.getEdgeWeight(g.getEdge(vertex1, vertex2)), 1.0);
+	}
+
+	@Test
+	public void getBoolEdgeWeightTest()
+	{
+		WeightedGraph<String, Boolean> g = new SimpleWeightedGraph<String, Boolean>(Boolean.class);
+		String vertex1 = "1";
+        g.addVertex(vertex1);
+        String vertex2 = "2";
+        g.addVertex(vertex2);
+        Boolean test = true;
+        g.addEdge(vertex1, vertex2, test);
+
+        assertEquals(g.getEdgeWeight(g.getEdge(vertex1, vertex2)), true);
 	}
 }
