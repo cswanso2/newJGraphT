@@ -145,7 +145,7 @@ public class AsWeightedGraph<V, E>
     /**
      * @see Graph#getEdgeWeight
      */
-    @Override public int getEdgeWeight(E e)
+    @Override public int getIntEdgeWeight(E e)
     {
         int weight;
 
@@ -163,7 +163,7 @@ public class AsWeightedGraph<V, E>
     /**
      * @see Graph#getEdgeWeight
      */
-    @Override public boolean getEdgeWeight(E e)
+    @Override public boolean getBoolEdgeWeight(E e)
     {
         boolean weight;
 
