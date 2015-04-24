@@ -145,16 +145,16 @@ public class AsWeightedGraph<V, E>
     /**
      * @see Graph#getEdgeWeight
      */
-    @Override public int getIntEdgeWeight(E e)
+    @Override public Integer getIntEdgeWeight(E e)
     {
-        int weight;
+        Integer weight;
 
         // Always return the value from the weight map first and
         // only pass the call through as a backup
         if (weightMap.containsKey(e)) {
-            weight = int(weightMap.get(e));
+            weight = Integer(weightMap.get(e));
         } else {
-            weight = int(super.getEdgeWeight(e));
+            weight = Integer(super.getEdgeWeight(e));
         }
 
         return weight;
