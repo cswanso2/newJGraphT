@@ -20,19 +20,6 @@ unweightedGraphTest: The output of getEdgeWeight is supposed to ouput 1.0 by the
 
 public class weightedFailingTest
 {
-	@Test
-	public void getIntEdgeWeightTest()
-	{
-		WeightedGraph<String, Integer> g = new SimpleWeightedGraph<String, Integer>(Integer.class);
-		String vertex1 = "1";
-        g.addVertex(vertex1);
-        String vertex2 = "2";
-        g.addVertex(vertex2);
-        Integer value = 10;
-        g.addEdge(vertex1, vertex2, value);
-
-        assertEquals(g.getIntEdgeWeight(g.getEdge(vertex1, vertex2)), 10.0);
-	}
 
 	@Test
 	public void unweightedGraphTest()
