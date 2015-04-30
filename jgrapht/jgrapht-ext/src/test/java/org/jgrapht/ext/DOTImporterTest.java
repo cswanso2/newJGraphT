@@ -208,6 +208,30 @@ public class DOTImporterTest extends TestCase
 
       Multigraph<String, DefaultEdge> expected
             = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      expected.addVertex("123456789");
+      expected.addVertex("!@#$%");
+      expected.addEdge("123456789", "!@#$%");
+
+
+      DOTImporter<String, DefaultEdge> importer = buildImporter();
+
+      Multigraph<String, DefaultEdge> result
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      importer.read(input, result);
+
+      Assert.assertEquals(expected.toString(), result.toString());
+
+      Assert.assertEquals(2, result.vertexSet().size());
+      Assert.assertEquals(1, result.edgeSet().size());
+
+   }
+   
+      public void testInputEmpty() throws ImportException {
+      String input = "graph G {\n"
+                     + "}";
+
+      Multigraph<String, DefaultEdge> expected
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
       expected.addVertex("abc123");
       expected.addVertex("fred");
       expected.addEdge("abc123", "fred");
@@ -223,6 +247,34 @@ public class DOTImporterTest extends TestCase
 
       Assert.assertEquals(2, result.vertexSet().size());
       Assert.assertEquals(1, result.edgeSet().size());
+
+   }
+   
+   public void testDirectedInputEmpty() throws ImportException {
+      String input = "digraph graphname {\r\n"
+                     + " }";
+
+      DirectedMultigraph<String, DefaultEdge> expected
+            = new DirectedMultigraph<String, DefaultEdge>(DefaultEdge.class);
+      expected.addVertex("a");
+      expected.addVertex("b");
+      expected.addVertex("c");
+      expected.addVertex("d");
+      expected.addEdge("a", "b");
+      expected.addEdge("b", "c");
+      expected.addEdge("b", "d");
+
+
+      DOTImporter<String, DefaultEdge> importer = buildImporter();
+
+      DirectedMultigraph<String, DefaultEdge> result
+            = new DirectedMultigraph<String, DefaultEdge>(DefaultEdge.class);
+      importer.read(input, result);
+
+      Assert.assertEquals(expected.toString(), result.toString());
+
+      Assert.assertEquals(4, result.vertexSet().size());
+      Assert.assertEquals(3, result.edgeSet().size());
 
    }
 
