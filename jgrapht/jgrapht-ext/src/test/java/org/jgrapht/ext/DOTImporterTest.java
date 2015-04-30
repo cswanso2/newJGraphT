@@ -204,6 +204,9 @@ public class DOTImporterTest extends TestCase
    //Testing empty graph G{}
    public void testInputDifferentCharacters() throws ImportException {
       String input = "graph G {\n"
+                     + "  1 [ label=\"123456789\" ];\n"
+                     + "  2 [ label=\"!@#$%\" ];\n"
+                     + "  1 -- 2;\n"
                      + "}";
 
       Multigraph<String, DefaultEdge> expected
