@@ -224,8 +224,8 @@ public class DOTImporterTest extends TestCase
 
       Assert.assertEquals(expected.toString(), result.toString());
 
-      Assert.assertEquals(2, result.vertexSet().size());
-      Assert.assertEquals(1, result.edgeSet().size());
+      Assert.assertEquals(0, result.vertexSet().size());
+      Assert.assertEquals(0, result.edgeSet().size());
 
    }
    
@@ -244,8 +244,8 @@ public class DOTImporterTest extends TestCase
 
       Assert.assertEquals(expected.toString(), result.toString());
 
-      Assert.assertEquals(2, result.vertexSet().size());
-      Assert.assertEquals(1, result.edgeSet().size());
+      Assert.assertEquals(0, result.vertexSet().size());
+      Assert.assertEquals(0, result.edgeSet().size());
 
    }
    
