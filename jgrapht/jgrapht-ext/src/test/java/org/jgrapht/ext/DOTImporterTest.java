@@ -202,7 +202,7 @@ public class DOTImporterTest extends TestCase
    
    //ADDED BY HOLLAND
    //Testing empty graph G{}
-   public void testUndirectedWithLabels() throws ImportException {
+   public void testInputEmpty() throws ImportException {
       String input = "graph G {\n"
                      + "}";
 
