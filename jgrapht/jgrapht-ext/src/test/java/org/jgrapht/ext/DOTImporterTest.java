@@ -208,9 +208,9 @@ public class DOTImporterTest extends TestCase
 
       Multigraph<String, DefaultEdge> expected
             = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
-      expected.addVertex("");
-      expected.addVertex("");
-      expected.addEdge("", "");
+      expected.addVertex("abc123");
+      expected.addVertex("fred");
+      expected.addEdge("abc123", "fred");
 
 
       DOTImporter<String, DefaultEdge> importer = buildImporter();
