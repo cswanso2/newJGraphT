@@ -199,6 +199,32 @@ public class DOTImporterTest extends TestCase
       Assert.assertEquals(1, result.edgeSet().size());
 
    }
+   
+   //ADDED BY HOLLAND
+   //Testing empty graph G{}
+   public void testUndirectedWithLabels() throws ImportException {
+      String input = "graph G {\n"
+                     + "}";
+
+      Multigraph<String, DefaultEdge> expected
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      expected.addVertex("abc123");
+      expected.addVertex("fred");
+      expected.addEdge("abc123", "fred");
+
+
+      DOTImporter<String, DefaultEdge> importer = buildImporter();
+
+      Multigraph<String, DefaultEdge> result
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      importer.read(input, result);
+
+      Assert.assertEquals(expected.toString(), result.toString());
+
+      Assert.assertEquals(2, result.vertexSet().size());
+      Assert.assertEquals(1, result.edgeSet().size());
+
+   }
 
    public void testDirectedNoLabels() throws ImportException {
       String input = "digraph graphname {\r\n"
