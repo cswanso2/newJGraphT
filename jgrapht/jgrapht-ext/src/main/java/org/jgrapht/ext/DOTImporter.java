@@ -175,6 +175,447 @@ public class DOTImporter<V,E> {
 
    }
 
+   public void readMutant1(String input, AbstractBaseGraph<V, E> graph)
+         throws ImportException
+   {
+
+      if (input == null || input.isEmpty()) {
+         throw new ImportException("Dot string was empty");
+      }
+
+      String[] lines = input.split("[;\r\n]");
+
+      validateLines(lines, graph);
+
+      // cache of vertexes added to the graph.
+      Map<String, V> vertexes = new HashMap<String, V>();
+
+      for(int lineIndex = 1; lineIndex < lines.length - 1; lineIndex ++ ) {
+         String line = lines[lineIndex].trim();
+
+         // trim off line comments.
+         if (line.contains("//")) {
+            line = line.substring(0, line.indexOf("//"));
+         }
+
+         // with \r\n or just ;\n line ends we get blanks. Filter here.
+         if(!line.isEmpty()) {
+            continue;
+         }
+
+         if (line.startsWith("#")) {
+            // line comment so ignore
+            // TODO: block comments
+         } else if (!line.contains("[") && line.contains("=")) {
+            throw new ImportException(
+                  "graph level properties are not currently supported."
+            );
+         } else if (!line.contains("-")) {
+            // probably a vertex
+            Map<String, String> attributes = extractAttributes(line);
+
+            String id = line.trim();
+            int bracketIndex = line.indexOf('[');
+            if (bracketIndex > 0) {
+               id = line.substring(0, line.indexOf('[')).trim();
+            }
+
+            String label = attributes.get("label");
+            if (label == null) {
+               label = id;
+            }
+
+            V existing = vertexes.get(id);
+            if (existing == null) {
+               V vertex = vertexProvider.buildVertex(label, attributes);
+               graph.addVertex(vertex);
+               vertexes.put(id, vertex);
+            } else {
+               if (vertexUpdater != null) {
+                  vertexUpdater.updateVertex(existing, attributes);
+               } else {
+                  throw new ImportException(
+                        "Update required for vertex "
+                        + label
+                        + " but no vertexUpdater provided"
+                  );
+               }
+            }
+         } else {
+            Map<String, String> attributes = extractAttributes(line);
+
+            List<String> ids = extractEdgeIds(line);
+
+            // for each pair of ids in the list create an edge.
+            for(int i = 0; i < ids.size() - 1; i++) {
+               V v1 = getVertex(ids.get(i), vertexes, graph);
+               V v2 = getVertex(ids.get(i+1), vertexes, graph);
+
+               E edge = edgeProvider.buildEdge(v1,
+                                               v2,
+                                               attributes.get("label"),
+                                               attributes);
+               graph.addEdge(v1, v2, edge);
+            }
+         }
+
+      }
+
+   }
+
+   public void readMutant2(String input, AbstractBaseGraph<V, E> graph)
+         throws ImportException
+   {
+
+      if (input == null || input.isEmpty()) {
+         throw new ImportException("Dot string was empty");
+      }
+
+      String[] lines = input.split("[;\r\n]");
+
+      validateLines(lines, graph);
+
+      // cache of vertexes added to the graph.
+      Map<String, V> vertexes = new HashMap<String, V>();
+
+      for(int lineIndex = 1; lineIndex < lines.length - 1; lineIndex -- ) {
+         String line = lines[lineIndex].trim();
+
+         // trim off line comments.
+         if (line.contains("//")) {
+            line = line.substring(0, line.indexOf("//"));
+         }
+
+         // with \r\n or just ;\n line ends we get blanks. Filter here.
+         if(line.isEmpty()) {
+            continue;
+         }
+
+         if (line.startsWith("#")) {
+            // line comment so ignore
+            // TODO: block comments
+         } else if (!line.contains("[") && line.contains("=")) {
+            throw new ImportException(
+                  "graph level properties are not currently supported."
+            );
+         } else if (!line.contains("-")) {
+            // probably a vertex
+            Map<String, String> attributes = extractAttributes(line);
+
+            String id = line.trim();
+            int bracketIndex = line.indexOf('[');
+            if (bracketIndex > 0) {
+               id = line.substring(0, line.indexOf('[')).trim();
+            }
+
+            String label = attributes.get("label");
+            if (label == null) {
+               label = id;
+            }
+
+            V existing = vertexes.get(id);
+            if (existing == null) {
+               V vertex = vertexProvider.buildVertex(label, attributes);
+               graph.addVertex(vertex);
+               vertexes.put(id, vertex);
+            } else {
+               if (vertexUpdater != null) {
+                  vertexUpdater.updateVertex(existing, attributes);
+               } else {
+                  throw new ImportException(
+                        "Update required for vertex "
+                        + label
+                        + " but no vertexUpdater provided"
+                  );
+               }
+            }
+         } else {
+            Map<String, String> attributes = extractAttributes(line);
+
+            List<String> ids = extractEdgeIds(line);
+
+            // for each pair of ids in the list create an edge.
+            for(int i = 0; i < ids.size() - 1; i++) {
+               V v1 = getVertex(ids.get(i), vertexes, graph);
+               V v2 = getVertex(ids.get(i+1), vertexes, graph);
+
+               E edge = edgeProvider.buildEdge(v1,
+                                               v2,
+                                               attributes.get("label"),
+                                               attributes);
+               graph.addEdge(v1, v2, edge);
+            }
+         }
+
+      }
+
+   }
+
+   public void readMutant3(String input, AbstractBaseGraph<V, E> graph)
+         throws ImportException
+   {
+
+      if (input != null || input.isEmpty()) {
+         throw new ImportException("Dot string was empty");
+      }
+
+      String[] lines = input.split("[;\r\n]");
+
+      validateLines(lines, graph);
+
+      // cache of vertexes added to the graph.
+      Map<String, V> vertexes = new HashMap<String, V>();
+
+      for(int lineIndex = 1; lineIndex < lines.length - 1; lineIndex ++ ) {
+         String line = lines[lineIndex].trim();
+
+         // trim off line comments.
+         if (line.contains("//")) {
+            line = line.substring(0, line.indexOf("//"));
+         }
+
+         // with \r\n or just ;\n line ends we get blanks. Filter here.
+         if(line.isEmpty()) {
+            continue;
+         }
+
+         if (line.startsWith("#")) {
+            // line comment so ignore
+            // TODO: block comments
+         } else if (!line.contains("[") && line.contains("=")) {
+            throw new ImportException(
+                  "graph level properties are not currently supported."
+            );
+         } else if (!line.contains("-")) {
+            // probably a vertex
+            Map<String, String> attributes = extractAttributes(line);
+
+            String id = line.trim();
+            int bracketIndex = line.indexOf('[');
+            if (bracketIndex > 0) {
+               id = line.substring(0, line.indexOf('[')).trim();
+            }
+
+            String label = attributes.get("label");
+            if (label == null) {
+               label = id;
+            }
+
+            V existing = vertexes.get(id);
+            if (existing == null) {
+               V vertex = vertexProvider.buildVertex(label, attributes);
+               graph.addVertex(vertex);
+               vertexes.put(id, vertex);
+            } else {
+               if (vertexUpdater != null) {
+                  vertexUpdater.updateVertex(existing, attributes);
+               } else {
+                  throw new ImportException(
+                        "Update required for vertex "
+                        + label
+                        + " but no vertexUpdater provided"
+                  );
+               }
+            }
+         } else {
+            Map<String, String> attributes = extractAttributes(line);
+
+            List<String> ids = extractEdgeIds(line);
+
+            // for each pair of ids in the list create an edge.
+            for(int i = 0; i < ids.size() - 1; i++) {
+               V v1 = getVertex(ids.get(i), vertexes, graph);
+               V v2 = getVertex(ids.get(i+1), vertexes, graph);
+
+               E edge = edgeProvider.buildEdge(v1,
+                                               v2,
+                                               attributes.get("label"),
+                                               attributes);
+               graph.addEdge(v1, v2, edge);
+            }
+         }
+
+      }
+
+   }
+
+   public void readMutant4(String input, AbstractBaseGraph<V, E> graph)
+         throws ImportException
+   {
+
+      if (input == null || input.isEmpty()) {
+         throw new ImportException("Dot string was empty");
+      }
+
+      String[] lines = input.split("[;\r\n]");
+
+      validateLines(lines, graph);
+
+      // cache of vertexes added to the graph.
+      Map<String, V> vertexes = new HashMap<String, V>();
+
+      for(int lineIndex = 1; lineIndex > lines.length - 1; lineIndex ++ ) {
+         String line = lines[lineIndex].trim();
+
+         // trim off line comments.
+         if (line.contains("//")) {
+            line = line.substring(0, line.indexOf("//"));
+         }
+
+         // with \r\n or just ;\n line ends we get blanks. Filter here.
+         if(line.isEmpty()) {
+            continue;
+         }
+
+         if (line.startsWith("#")) {
+            // line comment so ignore
+            // TODO: block comments
+         } else if (!line.contains("[") && line.contains("=")) {
+            throw new ImportException(
+                  "graph level properties are not currently supported."
+            );
+         } else if (!line.contains("-")) {
+            // probably a vertex
+            Map<String, String> attributes = extractAttributes(line);
+
+            String id = line.trim();
+            int bracketIndex = line.indexOf('[');
+            if (bracketIndex > 0) {
+               id = line.substring(0, line.indexOf('[')).trim();
+            }
+
+            String label = attributes.get("label");
+            if (label == null) {
+               label = id;
+            }
+
+            V existing = vertexes.get(id);
+            if (existing == null) {
+               V vertex = vertexProvider.buildVertex(label, attributes);
+               graph.addVertex(vertex);
+               vertexes.put(id, vertex);
+            } else {
+               if (vertexUpdater != null) {
+                  vertexUpdater.updateVertex(existing, attributes);
+               } else {
+                  throw new ImportException(
+                        "Update required for vertex "
+                        + label
+                        + " but no vertexUpdater provided"
+                  );
+               }
+            }
+         } else {
+            Map<String, String> attributes = extractAttributes(line);
+
+            List<String> ids = extractEdgeIds(line);
+
+            // for each pair of ids in the list create an edge.
+            for(int i = 0; i < ids.size() - 1; i++) {
+               V v1 = getVertex(ids.get(i), vertexes, graph);
+               V v2 = getVertex(ids.get(i+1), vertexes, graph);
+
+               E edge = edgeProvider.buildEdge(v1,
+                                               v2,
+                                               attributes.get("label"),
+                                               attributes);
+               graph.addEdge(v1, v2, edge);
+            }
+         }
+
+      }
+
+   }
+
+   public void readMutant5(String input, AbstractBaseGraph<V, E> graph)
+         throws ImportException
+   {
+
+      if (input == null || input.isEmpty()) {
+         throw new ImportException("Dot string was empty");
+      }
+
+      String[] lines = input.split("[;\r\n]");
+
+      validateLines(lines, graph);
+
+      // cache of vertexes added to the graph.
+      Map<String, V> vertexes = new HashMap<String, V>();
+
+      for(int lineIndex = 1; lineIndex < lines.length - 1; lineIndex ++ ) {
+         String line = lines[lineIndex].trim();
+
+         // trim off line comments.
+         if (line.contains("//")) {
+            line = line.substring(0, line.indexOf("//"));
+         }
+
+         // with \r\n or just ;\n line ends we get blanks. Filter here.
+         if(line.isEmpty()) {
+            continue;
+         }
+
+         if (line.startsWith("#")) {
+            // line comment so ignore
+            // TODO: block comments
+         } else if (line.contains("[") && line.contains("=")) {
+            throw new ImportException(
+                  "graph level properties are not currently supported."
+            );
+         } else if (!line.contains("-")) {
+            // probably a vertex
+            Map<String, String> attributes = extractAttributes(line);
+
+            String id = line.trim();
+            int bracketIndex = line.indexOf('[');
+            if (bracketIndex > 0) {
+               id = line.substring(0, line.indexOf('[')).trim();
+            }
+
+            String label = attributes.get("label");
+            if (label == null) {
+               label = id;
+            }
+
+            V existing = vertexes.get(id);
+            if (existing == null) {
+               V vertex = vertexProvider.buildVertex(label, attributes);
+               graph.addVertex(vertex);
+               vertexes.put(id, vertex);
+            } else {
+               if (vertexUpdater != null) {
+                  vertexUpdater.updateVertex(existing, attributes);
+               } else {
+                  throw new ImportException(
+                        "Update required for vertex "
+                        + label
+                        + " but no vertexUpdater provided"
+                  );
+               }
+            }
+         } else {
+            Map<String, String> attributes = extractAttributes(line);
+
+            List<String> ids = extractEdgeIds(line);
+
+            // for each pair of ids in the list create an edge.
+            for(int i = 0; i < ids.size() - 1; i++) {
+               V v1 = getVertex(ids.get(i), vertexes, graph);
+               V v2 = getVertex(ids.get(i+1), vertexes, graph);
+
+               E edge = edgeProvider.buildEdge(v1,
+                                               v2,
+                                               attributes.get("label"),
+                                               attributes);
+               graph.addEdge(v1, v2, edge);
+            }
+         }
+
+      }
+
+   }
+
+
    private void validateLines(String[] lines,
                               AbstractBaseGraph<V,E> graph)
          throws ImportException

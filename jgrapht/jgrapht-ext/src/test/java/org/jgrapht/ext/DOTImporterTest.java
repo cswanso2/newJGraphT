@@ -65,6 +65,141 @@ public class DOTImporterTest extends TestCase
 
    }
 
+   public void testMutant1() throws ImportException {
+      String input = "graph G {\n"
+                     + "  1 [ label=\"abc123\" ];\n"
+                     + "  2 [ label=\"fred\" ];\n"
+                     + "  1 -- 2;\n"
+                     + "}";
+
+      Multigraph<String, DefaultEdge> expected
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      expected.addVertex("abc123");
+      expected.addVertex("fred");
+      expected.addEdge("abc123", "fred");
+
+
+      DOTImporter<String, DefaultEdge> importer = buildImporter();
+
+      Multigraph<String, DefaultEdge> result
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      importer.readMutant1(input, result);
+
+      Assert.assertEquals(expected.toString(), result.toString());
+
+      Assert.assertEquals(2, result.vertexSet().size());
+      Assert.assertEquals(1, result.edgeSet().size());
+
+   }
+
+   public void testMutant2() throws ImportException {
+      String input = "graph G {\n"
+                     + "  1 [ label=\"abc123\" ];\n"
+                     + "  2 [ label=\"fred\" ];\n"
+                     + "  1 -- 2;\n"
+                     + "}";
+
+      Multigraph<String, DefaultEdge> expected
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      expected.addVertex("abc123");
+      expected.addVertex("fred");
+      expected.addEdge("abc123", "fred");
+
+
+      DOTImporter<String, DefaultEdge> importer = buildImporter();
+
+      Multigraph<String, DefaultEdge> result
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      importer.readMutant2(input, result);
+
+      Assert.assertEquals(expected.toString(), result.toString());
+
+      Assert.assertEquals(2, result.vertexSet().size());
+      Assert.assertEquals(1, result.edgeSet().size());
+
+   }
+
+   public void testMutant3() throws ImportException {
+      String input = "graph G {\n"
+                     + "  1 [ label=\"abc123\" ];\n"
+                     + "  2 [ label=\"fred\" ];\n"
+                     + "  1 -- 2;\n"
+                     + "}";
+
+      Multigraph<String, DefaultEdge> expected
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      expected.addVertex("abc123");
+      expected.addVertex("fred");
+      expected.addEdge("abc123", "fred");
+
+
+      DOTImporter<String, DefaultEdge> importer = buildImporter();
+
+      Multigraph<String, DefaultEdge> result
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      importer.readMutant3(input, result);
+
+      Assert.assertEquals(expected.toString(), result.toString());
+
+      Assert.assertEquals(2, result.vertexSet().size());
+      Assert.assertEquals(1, result.edgeSet().size());
+
+   }
+
+   public void testMutant4() throws ImportException {
+      String input = "graph G {\n"
+                     + "  1 [ label=\"abc123\" ];\n"
+                     + "  2 [ label=\"fred\" ];\n"
+                     + "  1 -- 2;\n"
+                     + "}";
+
+      Multigraph<String, DefaultEdge> expected
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      expected.addVertex("abc123");
+      expected.addVertex("fred");
+      expected.addEdge("abc123", "fred");
+
+
+      DOTImporter<String, DefaultEdge> importer = buildImporter();
+
+      Multigraph<String, DefaultEdge> result
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      importer.readMutant4(input, result);
+
+      Assert.assertEquals(expected.toString(), result.toString());
+
+      Assert.assertEquals(2, result.vertexSet().size());
+      Assert.assertEquals(1, result.edgeSet().size());
+
+   }
+
+   public void testMutant5() throws ImportException {
+      String input = "graph G {\n"
+                     + "  1 [ label=\"abc123\" ];\n"
+                     + "  2 [ label=\"fred\" ];\n"
+                     + "  1 -- 2;\n"
+                     + "}";
+
+      Multigraph<String, DefaultEdge> expected
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      expected.addVertex("abc123");
+      expected.addVertex("fred");
+      expected.addEdge("abc123", "fred");
+
+
+      DOTImporter<String, DefaultEdge> importer = buildImporter();
+
+      Multigraph<String, DefaultEdge> result
+            = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
+      importer.readMutant5(input, result);
+
+      Assert.assertEquals(expected.toString(), result.toString());
+
+      Assert.assertEquals(2, result.vertexSet().size());
+      Assert.assertEquals(1, result.edgeSet().size());
+
+   }
+
    public void testDirectedNoLabels() throws ImportException {
       String input = "digraph graphname {\r\n"
                      + "     a -> b -> c;\r\n"
