@@ -202,7 +202,7 @@ public class DOTImporterTest extends TestCase
    
    //ADDED BY HOLLAND
    //Testing empty graph G{}
-   public void testInputEmpty() throws ImportException {
+   public void testInputDifferentCharacters() throws ImportException {
       String input = "graph G {\n"
                      + "}";
 
@@ -232,10 +232,6 @@ public class DOTImporterTest extends TestCase
 
       Multigraph<String, DefaultEdge> expected
             = new Multigraph<String, DefaultEdge>(DefaultEdge.class);
-      expected.addVertex("abc123");
-      expected.addVertex("fred");
-      expected.addEdge("abc123", "fred");
-
 
       DOTImporter<String, DefaultEdge> importer = buildImporter();
 
@@ -256,14 +252,6 @@ public class DOTImporterTest extends TestCase
 
       DirectedMultigraph<String, DefaultEdge> expected
             = new DirectedMultigraph<String, DefaultEdge>(DefaultEdge.class);
-      expected.addVertex("a");
-      expected.addVertex("b");
-      expected.addVertex("c");
-      expected.addVertex("d");
-      expected.addEdge("a", "b");
-      expected.addEdge("b", "c");
-      expected.addEdge("b", "d");
-
 
       DOTImporter<String, DefaultEdge> importer = buildImporter();
 
