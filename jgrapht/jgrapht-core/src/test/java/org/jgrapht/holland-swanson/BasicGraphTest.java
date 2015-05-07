@@ -8,7 +8,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.After;
 import java.util.*;
-import org.jgrapht.*;
 
 public class BasicGraphTest
 {
