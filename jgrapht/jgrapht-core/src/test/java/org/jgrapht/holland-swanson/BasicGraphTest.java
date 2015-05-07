@@ -155,7 +155,7 @@ public class BasicGraphTest
         
         //Test Undirected Graph Builder
         @Test
-        public void() testUndirectedGraphBuilder()
+        public void testUndirectedGraphBuilder()
         {
                 UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 
