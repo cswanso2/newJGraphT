@@ -151,4 +151,20 @@ public class BasicGraphTest
 
         assertEquals(g.getEdgeTarget(g.getEdge(vertex1, vertex2)), vertex2);
 	}
+
+        
+        //Test Undirected Graph Builder
+        @Test
+        public void() testUndirectedGraphBuilder()
+        {
+                UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
+
+                UndirectedGraphBuilder(g);
+
+                String vertex1 = "1";
+                g.addVertex(vertex1);
+                String vertex2 = "2";
+
+                assertEquals(g.addVertex(vertex2), true);
+        }
 }
